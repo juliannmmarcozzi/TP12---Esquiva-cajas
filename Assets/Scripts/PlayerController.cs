@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,14 +24,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) 
         {
             transform.Translate(2, 0, 0);
-        }
-    }
-
-    void OnCollisionEnter(Collision col) 
-    {
-        if(col.gameObject.CompareTag("Caja"))
-        {
-            Destroy(gameObject);
         }
     }
 }

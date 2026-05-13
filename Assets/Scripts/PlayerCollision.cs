@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class CajaCollision : MonoBehaviour
+public class PlayerCollision : MonoBehaviour
 {
     void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.CompareTag("Caja"))
         {
-            CajaSpawner spawner = col.gameObject.GetComponent<CajaSpawner>();
-            spawner.LocateBoxAtRandomPosition();
-
             CajaMovement movement = col.gameObject.GetComponent<CajaMovement>();
-            movement.IncreaseSpeed();
+
+            movement.StopMovement();
+
+            GameManager.gameOver = true;
+
+            Destroy(gameObject);
         }
     }
 }
